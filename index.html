@@ -1,4 +1,4 @@
-```html
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,6 +19,7 @@
   <link rel="icon" href="./favicon.ico">
   <link rel="manifest" href="./manifest.webmanifest">
 
+  <!-- Keep the original game files -->
   <script src="./boot.js"></script>
   <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css">
@@ -210,8 +211,7 @@
       <div class="header-actions">
         <a class="mv-link"
            href="https://www.facebook.com/mahi04rotna"
-           target="_blank"
-           rel="noopener noreferrer">Facebook ↗</a>
+           target="_blank" rel="noopener noreferrer">Facebook ↗</a>
 
         <span class="mode"></span>
 
@@ -229,8 +229,9 @@
       <div class="mv-credit">Made by SK Abdur Rahman Mahi</div>
       <a class="mv-link"
          href="https://www.facebook.com/mahi04rotna"
-         target="_blank"
-         rel="noopener noreferrer">Follow Mahi Vortex on Facebook ↗</a>
+         target="_blank" rel="noopener noreferrer">
+        Follow Mahi Vortex on Facebook ↗
+      </a>
     </div>
 
     <section class="intro" data-i18n-label="intro.label">
@@ -282,8 +283,9 @@
       <p class="mv-credit-footer">Made by SK Abdur Rahman Mahi</p>
       <a class="mv-link"
          href="https://www.facebook.com/mahi04rotna"
-         target="_blank"
-         rel="noopener noreferrer">Facebook: Mahi Vortex ↗</a>
+         target="_blank" rel="noopener noreferrer">
+        Facebook: Mahi Vortex ↗
+      </a>
     </footer>
   </main>
 
@@ -304,23 +306,21 @@
     </div>
   </div>
 
-  <!-- Safe branding: update only when the displayed text differs -->
+  <!-- Branding -->
   <script>
     (() => {
       function applyMahiBrand() {
-        if (document.title !== "Mahi Vortex | Pen Fight") {
-          document.title = "Mahi Vortex | Pen Fight";
-        }
+        document.title = "Mahi Vortex | Pen Fight";
 
         document.querySelectorAll('[data-i18n="brand.name"]')
-          .forEach((el) => {
+          .forEach(el => {
             if (el.textContent !== "Mahi Vortex") {
               el.textContent = "Mahi Vortex";
             }
           });
 
         document.querySelectorAll('[data-i18n="brand.edition"]')
-          .forEach((el) => {
+          .forEach(el => {
             if (el.textContent !== "MAHI VORTEX EDITION") {
               el.textContent = "MAHI VORTEX EDITION";
             }
@@ -339,16 +339,73 @@
 
       applyMahiBrand();
 
-      const observer = new MutationObserver(() => {
-        applyMahiBrand();
-      });
+      new MutationObserver(applyMahiBrand).observe(
+        document.documentElement,
+        { childList: true, subtree: true }
+      );
+    })();
+  </script>
 
-      observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-      });
+  <!-- Background image checks and fallback -->
+  <script>
+    (() => {
+      const fallback = "./assets/mahi-vortex-desk.png";
+
+      const backgroundFiles = [
+        "./assets/desk-clean-DLVVUlLE.webp",
+        "./assets/desk-clean-dark-JT8PWu_t.webp",
+        "./assets/desk-old-E230-6rb.webp",
+        "./assets/desk-old-dark-SzrO7MB8.webp",
+        "./assets/desk-school-home-7jR7BuR9.webp",
+        "./assets/desk-school-home-dark-B_e9FIFR.webp",
+        "./assets/desk-school-dark-CegJ5AG-.webp",
+        fallback
+      ];
+
+      const imageChecks = new Map();
+
+      function imageLoads(path) {
+        if (!imageChecks.has(path)) {
+          imageChecks.set(path, new Promise(resolve => {
+            const image = new Image();
+
+            image.onload = () => resolve(true);
+            image.onerror = () => resolve(false);
+            image.src = path;
+          }));
+        }
+
+        return imageChecks.get(path);
+      }
+
+      async function checkBackgroundFiles() {
+        const results = await Promise.all(
+          backgroundFiles.map(async path => ({
+            path,
+            loaded: await imageLoads(path)
+          }))
+        );
+
+        results.forEach(({ path, loaded }) => {
+          if (loaded) {
+            console.info("[Mahi Vortex] Background loaded:", path);
+          } else {
+            console.warn("[Mahi Vortex] Background file missing:", path);
+          }
+        });
+
+        const fallbackLoaded = await imageLoads(fallback);
+
+        if (!fallbackLoaded) {
+          console.error(
+            "[Mahi Vortex] Fallback image is also missing:",
+            fallback
+          );
+        }
+      }
+
+      checkBackgroundFiles();
     })();
   </script>
 </body>
 </html>
-```
