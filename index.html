@@ -1,92 +1,198 @@
-```html
+
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10101e">
 
-  <title>Mahi Vortex · Pen Fight</title>
-  <meta name="description" content="Mahi Vortex — play the ultimate pen fight game." />
-  <meta name="theme-color" content="#f4ebd4" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#1f2a3a" media="(prefers-color-scheme: dark)" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="author" content="Mahi Vortex" />
+  <title>Mahi Vortex | Pen Fight</title>
+  <meta name="description" content="Mahi Vortex Pen Fight — Made by SK Abdur Rahman Mahi">
+  <meta name="author" content="SK Abdur Rahman Mahi">
 
-  <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
+  <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/">
+  <meta property="og:title" content="Mahi Vortex | Pen Fight">
+  <meta property="og:description" content="Play Pen Fight — Made by SK Abdur Rahman Mahi">
+  <meta property="og:url" content="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/">
+  <meta property="og:site_name" content="Mahi Vortex">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Mahi Vortex" />
-  <meta property="og:title" content="Mahi Vortex · Pen Fight" />
-  <meta property="og:description" content="Play Pen Fight on Mahi Vortex." />
-  <meta property="og:url" content="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mahi Vortex · Pen Fight" />
-  <meta name="twitter:description" content="Play Pen Fight on Mahi Vortex." />
-
-  <link rel="icon" href="./favicon.ico" sizes="32x32" />
-  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Mahi Vortex" />
+  <link rel="icon" href="./favicon.ico">
+  <link rel="manifest" href="./manifest.webmanifest">
 
   <script src="./boot.js"></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["VideoGame", "WebApplication"],
-    "name": "Mahi Vortex Pen Fight",
-    "description": "A free browser pen-flick game.",
-    "url": "https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/",
-    "genre": ["Arcade", "Party", "Skill"],
-    "gamePlatform": "Web browser",
-    "applicationCategory": "Game",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires JavaScript and a modern browser",
-    "playMode": ["SinglePlayer", "MultiPlayer"],
-    "numberOfPlayers": {
-      "@type": "QuantitativeValue",
-      "minValue": 1,
-      "maxValue": 2
-    },
-    "isAccessibleForFree": true
-  }
-  </script>
-
   <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
-
-  <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-XKyaHtl9.js" />
-  <link rel="modulepreload" crossorigin href="./assets/CanvasPool-EdluIB4P.js" />
-  <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-BF24UPiI.js" />
-  <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-nRHaAKGT.js" />
-  <link rel="modulepreload" crossorigin href="./assets/WebGLRenderer-D8sIAoR4.js" />
-  <link rel="modulepreload" crossorigin href="./assets/getTextureBatchBindGroup-CNA3CxcA.js" />
-  <link rel="modulepreload" crossorigin href="./assets/WebGPURenderer-DhiGflwE.js" />
-  <link rel="modulepreload" crossorigin href="./assets/canvasUtils-Cg74IfN-.js" />
-  <link rel="modulepreload" crossorigin href="./assets/CanvasRenderer-Bcopnc1f.js" />
-
-  <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css" />
+  <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css">
 
   <style>
+    :root {
+      --mv-bg: #10101e;
+      --mv-blue: #00c8ff;
+      --mv-purple: #a855f7;
+      --mv-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--mv-bg);
+      background-image:
+        linear-gradient(rgba(8, 8, 20, .42), rgba(8, 8, 20, .58)),
+        url("./assets/mahi-vortex-desk.png");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--mv-white);
+    }
+
+    .masthead,
+    footer,
+    .mv-brand-panel {
+      position: relative;
+      z-index: 5;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 20px;
+      border-bottom: 2px solid var(--mv-blue);
+      background: rgba(8, 8, 20, .86);
+    }
+
     .brand-name-custom {
+      display: inline-block;
+      color: #fff;
+      font-weight: 1000;
+      font-size: clamp(22px, 4vw, 38px);
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 12px var(--mv-purple);
+    }
+
+    .edition {
+      display: block;
+      color: var(--mv-blue);
+      font-weight: 800;
+      letter-spacing: 3px;
+      font-size: 11px;
+    }
+
+    .mv-link {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid var(--mv-blue);
+      border-radius: 24px;
+      background: #111b47;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .mv-link:hover {
+      background: #183a70;
+      box-shadow: 0 0 15px var(--mv-blue);
+    }
+
+    .mv-brand-panel {
+      margin: 12px auto;
+      padding: 12px;
+      text-align: center;
+      color: #fff;
       font-weight: 900;
+      text-shadow: 0 0 12px var(--mv-purple);
+    }
+
+    .mv-brand-panel .mv-title {
+      font-size: clamp(24px, 5vw, 42px);
+      letter-spacing: 2px;
+    }
+
+    .mv-credit {
+      margin: 8px 0;
+      color: #b9f3ff;
+      font-size: 13px;
       letter-spacing: 1px;
+    }
+
+    #main-menu,
+    #pen-picker,
+    .play-area,
+    .intro,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    #main-menu,
+    #pen-picker,
+    .play-area {
+      background-color: rgba(10, 10, 25, .20);
+    }
+
+    #arena {
+      position: relative;
+      background-color: rgba(36, 24, 16, .18);
+      background-image:
+        linear-gradient(rgba(20, 10, 5, .08), rgba(20, 10, 5, .08)),
+        url("./assets/mahi-vortex-desk.png");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    footer {
+      padding: 18px 12px;
+      text-align: center;
+      background: rgba(8, 8, 20, .9);
+      border-top: 2px solid var(--mv-purple);
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    .mv-footer-brand {
+      color: white;
+      font-size: 18px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+    }
+
+    .mv-credit-footer {
+      color: #b9f3ff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      .masthead {
+        padding: 12px;
+      }
+
+      .mv-link {
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      body {
+        background-attachment: scroll;
+      }
     }
   </style>
 </head>
 
 <body>
   <noscript>
-    <div style="max-width:40rem;margin:2rem auto;padding:0 1rem;font:1.1rem/1.5 system-ui,sans-serif">
-      <h2>Mahi Vortex</h2>
-      <p>This game needs JavaScript enabled to play.</p>
-    </div>
+    <h2>Mahi Vortex</h2>
+    <p>This game needs JavaScript enabled.</p>
   </noscript>
 
   <main>
@@ -100,7 +206,13 @@
       </div>
 
       <div class="header-actions">
+        <a class="mv-link"
+           href="https://www.facebook.com/mahi04rotna"
+           target="_blank"
+           rel="noopener noreferrer">Facebook ↗</a>
+
         <span class="mode"></span>
+
         <button id="settings-toggle" class="gear-pill" type="button"
           aria-haspopup="dialog" aria-expanded="false"
           aria-controls="settings-panel" data-i18n-label="settings.open">
@@ -108,6 +220,16 @@
         </button>
       </div>
     </header>
+
+    <div class="mv-brand-panel">
+      <div class="mv-title">MAHI VORTEX</div>
+      <div>PEN FIGHT · FLICK · FIGHT · WIN</div>
+      <div class="mv-credit">Made by SK Abdur Rahman Mahi</div>
+      <a class="mv-link"
+         href="https://www.facebook.com/mahi04rotna"
+         target="_blank"
+         rel="noopener noreferrer">Follow Mahi Vortex on Facebook ↗</a>
+    </div>
 
     <section class="intro" data-i18n-label="intro.label">
       <div>
@@ -148,12 +270,18 @@
     </section>
 
     <footer>
+      <div class="mv-footer-brand">MAHI VORTEX</div>
       <p>
         <b data-step="1"></b> <span data-i18n="controls.hold"></span>
         <b data-step="2"></b> <span data-i18n="controls.aim"></span>
         <b data-step="3"></b> <span data-i18n="controls.release"></span>
       </p>
       <p data-i18n="controls.tip"></p>
+      <p class="mv-credit-footer">Made by SK Abdur Rahman Mahi</p>
+      <a class="mv-link"
+         href="https://www.facebook.com/mahi04rotna"
+         target="_blank"
+         rel="noopener noreferrer">Facebook: Mahi Vortex ↗</a>
     </footer>
   </main>
 
@@ -175,29 +303,33 @@
   </div>
 
   <script>
-    document.title = "Mahi Vortex · Pen Fight";
+    document.title = "Mahi Vortex | Pen Fight";
 
-    // Keep the visible header branding as Mahi Vortex.
     function setMahiVortexBrand() {
       const brand = document.querySelector('[data-i18n="brand.name"]');
-      if (brand && brand.textContent !== "Mahi Vortex") {
-        brand.textContent = "Mahi Vortex";
-      }
+      if (brand) brand.textContent = "Mahi Vortex";
 
       const edition = document.querySelector('[data-i18n="brand.edition"]');
-      if (edition && edition.textContent !== "MAHI VORTEX EDITION") {
-        edition.textContent = "MAHI VORTEX EDITION";
+      if (edition) edition.textContent = "MAHI VORTEX EDITION";
+
+      const heading = document.querySelector(".intro h1");
+      if (heading) heading.textContent = "Mahi Vortex";
+
+      const loading = document.getElementById("loading");
+      if (loading && loading.textContent.includes("Loading")) {
+        loading.textContent = "Loading Mahi Vortex...";
       }
     }
 
     setMahiVortexBrand();
 
-    new MutationObserver(setMahiVortexBrand).observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    });
+    new MutationObserver(setMahiVortexBrand).observe(
+      document.documentElement,
+      {
+        childList: true,
+        subtree: true
+      }
+    );
   </script>
 </body>
 </html>
-```
