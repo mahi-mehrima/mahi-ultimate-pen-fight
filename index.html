@@ -331,5 +331,72 @@
       }
     );
   </script>
+
+<!-- Mahi Vortex visible branding -->
+<style>
+  .mv-credit {
+    text-align: center;
+    padding: 12px;
+    color: #fff;
+    font: 600 14px/1.6 system-ui, sans-serif;
+    background: rgba(12, 10, 30, .88);
+    border-top: 1px solid #673cff;
+  }
+  .mv-credit strong {
+    color: #b9a0ff;
+  }
+  .mv-facebook {
+    display: inline-block;
+    margin: 6px;
+    padding: 7px 14px;
+    border-radius: 20px;
+    color: white;
+    background: #0866ff;
+    text-decoration: none;
+    font-weight: 700;
+  }
+</style>
+
+<div class="mv-credit">
+  <strong>Mahi Vortex</strong>
+  <br>
+  Made by SK Abdur Rahman Mahi
+  <br>
+  <a class="mv-facebook"
+     href="https://www.facebook.com/mahi04rotna"
+     target="_blank"
+     rel="noopener noreferrer">
+    Follow Mahi Vortex on Facebook
+  </a>
+</div>
+
+<script>
+(() => {
+  const applyBrand = () => {
+    document.title = "Mahi Vortex | Pen Fight";
+
+    document.querySelectorAll('[data-i18n="brand.name"]')
+      .forEach(el => el.textContent = "Mahi Vortex");
+
+    document.querySelectorAll('[data-i18n="brand.edition"]')
+      .forEach(el => el.textContent = "PEN FIGHT");
+
+    document.querySelectorAll('header .brand, .intro h1')
+      .forEach(el => {
+        if (!el.textContent.includes("Mahi Vortex")) {
+          el.setAttribute("aria-label", "Mahi Vortex");
+        }
+      });
+  };
+
+  applyBrand();
+
+  new MutationObserver(applyBrand).observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();
+</script>
 </body>
 </html>
+
