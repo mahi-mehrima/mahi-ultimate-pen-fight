@@ -1,135 +1,146 @@
+
 <!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <!-- Static English defaults for link previews and crawlers; i18n replaces title and description at runtime. -->
     <title data-i18n="app.pageTitle">Pen Fight · Flick pen duel on a school desk | Shunnek Labs</title>
     <meta name="description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." data-i18n-description="app.description" />
-    <!-- Filled at build time from the page colours (build/release-plugins.ts); the theme updates both at runtime. -->
     <meta name="theme-color" content="#f4ebd4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1f2a3a" media="(prefers-color-scheme: dark)" />
-    <!-- Before the first paint: the page colour and theme (no blank flash), and the update splash after an update. -->
-    <script src="/games/pen-fight/boot.js"></script>
+    <script src="./boot.js"></script>
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="Shunnek Labs" />
-    <link rel="canonical" href="https://shunneklabs.app/games/pen-fight/" />
-    <!-- Share previews: absolute URLs, so they work wherever the link is pasted. Image made by scripts/bake-share-images.mjs. -->
+    <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Shunnek Labs" />
+    <meta property="og:site_name" content="Mahi Vortex" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="de_DE" />
-    <meta property="og:title" content="Pen Fight · Flick pen duel on a school desk" />
-    <meta property="og:description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." />
-    <meta property="og:url" content="https://shunneklabs.app/games/pen-fight/" />
-    <meta property="og:image" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
-    <meta property="og:image:secure_url" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Two pens on a wooden school desk, with the title Pen Fight." />
+    <meta property="og:title" content="Mahi Vortex · Pen Fight" />
+    <meta property="og:description" content="Play Pen Fight on Mahi Vortex." />
+    <meta property="og:url" content="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pen Fight · Flick pen duel on a school desk" />
-    <meta name="twitter:description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." />
-    <meta name="twitter:image" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
-    <meta name="twitter:image:alt" content="Two pens on a wooden school desk, with the title Pen Fight." />
-    <link rel="icon" href="/games/pen-fight/favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href="/games/pen-fight/icon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/games/pen-fight/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/games/pen-fight/apple-touch-icon.png" />
-    <link rel="manifest" href="/games/pen-fight/manifest.webmanifest" />
-    <!-- Home screen installs open full screen: the manifest asks for it on Android, these tags on iOS. -->
+    <meta name="twitter:title" content="Mahi Vortex · Pen Fight" />
+    <meta name="twitter:description" content="Play Pen Fight on Mahi Vortex." />
+    <link rel="icon" href="./favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Pen Fight" />
-    <!-- Structured data for search and answer engines. Not run as script, so the CSP (script-src 'self') allows it. -->
+    <meta name="apple-mobile-web-app-title" content="Mahi Vortex" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": ["VideoGame", "WebApplication"],
-      "@id": "https://shunneklabs.app/games/pen-fight/#game",
-      "name": "Pen Fight",
-      "alternateName": "Desk Wars · Pen Fight",
-      "description": "Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads.",
-      "url": "https://shunneklabs.app/games/pen-fight/",
-      "image": "https://shunneklabs.app/games/pen-fight/og-1200x630.png",
-      "genre": ["Arcade", "Party", "Skill"],
-      "gamePlatform": "Web browser",
-      "applicationCategory": "Game",
-      "applicationSubCategory": "Flick game",
-      "operatingSystem": "Any",
-      "browserRequirements": "Requires JavaScript and a modern browser",
-      "inLanguage": ["en", "de"],
-      "playMode": ["SinglePlayer", "MultiPlayer"],
-      "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
-      "gameLocation": "Local play on one device, against the computer or with a friend",
-      "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://shunneklabs.app/games/pen-fight/" },
-      "publisher": { "@id": "https://shunneklabs.app/#organization" },
-      "author": { "@id": "https://shunneklabs.app/#organization" },
-      "isPartOf": { "@type": "CollectionPage", "name": "Games · Shunnek Labs", "url": "https://shunneklabs.app/games/" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://shunneklabs.app/#organization",
-      "name": "Shunnek Labs",
-      "url": "https://shunneklabs.app/",
-      "logo": "https://shunneklabs.app/web/apple-touch-icon.png",
-      "sameAs": ["https://shunneklabs.com"]
-    }
-  ]
+  "@type": ["VideoGame", "WebApplication"],
+  "name": "Mahi Vortex Pen Fight",
+  "description": "A free browser pen-flick game.",
+  "url": "https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/",
+  "genre": ["Arcade", "Party", "Skill"],
+  "gamePlatform": "Web browser",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript and a modern browser",
+  "playMode": ["SinglePlayer", "MultiPlayer"],
+  "numberOfPlayers": {
+    "@type": "QuantitativeValue",
+    "minValue": 1,
+    "maxValue": 2
+  },
+  "isAccessibleForFree": true
 }
     </script>
-    <script type="module" crossorigin src="/games/pen-fight/assets/index-CEku0KZZ.js"></script>
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/rolldown-runtime-XKyaHtl9.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/CanvasPool-EdluIB4P.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/RenderTargetSystem-BF24UPiI.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/getTexelRangeRects-nRHaAKGT.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/WebGLRenderer-D8sIAoR4.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/getTextureBatchBindGroup-CNA3CxcA.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/WebGPURenderer-DhiGflwE.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/canvasUtils-Cg74IfN-.js">
-    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/CanvasRenderer-Bcopnc1f.js">
-    <link rel="stylesheet" crossorigin href="/games/pen-fight/assets/index-irkBxy6h.css">
+    <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-XKyaHtl9.js" />
+    <link rel="modulepreload" crossorigin href="./assets/CanvasPool-EdluIB4P.js" />
+    <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-BF24UPiI.js" />
+    <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-nRHaAKGT.js" />
+    <link rel="modulepreload" crossorigin href="./assets/WebGLRenderer-D8sIAoR4.js" />
+    <link rel="modulepreload" crossorigin href="./assets/getTextureBatchBindGroup-CNA3CxcA.js" />
+    <link rel="modulepreload" crossorigin href="./assets/WebGPURenderer-DhiGflwE.js" />
+    <link rel="modulepreload" crossorigin href="./assets/canvasUtils-Cg74IfN-.js" />
+    <link rel="modulepreload" crossorigin href="./assets/CanvasRenderer-Bcopnc1f.js" />
+    <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css" />
   </head>
   <body>
     <noscript>
       <div style="max-width: 40rem; margin: 2rem auto; padding: 0 1rem; font: 1.1rem/1.5 system-ui, sans-serif;">
         <h2>Pen Fight</h2>
-        <p>Pen Fight is a free flick game for the browser from Shunnek Labs. Two pens lie on a school desk: flick yours, knock the other pen off and keep yours on. Play the computer or a friend on the same phone, tablet or computer. No sign-in, no ads.</p>
+        <p>Pen Fight needs JavaScript enabled to play.</p>
         <p>How to play:</p>
         <ol>
           <li>Grab your pen.</li>
-          <li>Pull back to aim. Pull further for more power, grab near a tip to spin.</li>
-          <li>Let go to flick. Knock their pen off the desk and keep yours on to win.</li>
+          <li>Pull back to aim. Pull further for more power.</li>
+          <li>Release to flick and knock the other pen off the desk.</li>
         </ol>
-        <p>Pen Fight needs JavaScript. Turn it on to play, or see <a href="/games/">all Shunnek Labs games</a>.</p>
       </div>
     </noscript>
     <main>
       <header class="masthead">
-        <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><span data-i18n="brand.name"></span><span class="edition" data-i18n="brand.edition"></span></div></div>
-        <div class="header-actions"><span class="mode"></span><button id="settings-toggle" class="gear-pill" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel" data-i18n-label="settings.open"><span data-icon="settings" aria-hidden="true"></span></button></div>
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <span data-i18n="brand.name"></span>
+            <span class="edition" data-i18n="brand.edition"></span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span class="mode"></span>
+          <button id="settings-toggle" class="gear-pill" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel" data-i18n-label="settings.open">
+            <span data-icon="settings" aria-hidden="true"></span>
+          </button>
+        </div>
       </header>
       <section class="intro" data-i18n-label="intro.label">
-        <div><p class="eyebrow" data-i18n="intro.eyebrow"></p><h1 data-i18n="intro.title"></h1></div>
+        <div>
+          <p class="eyebrow" data-i18n="intro.eyebrow"></p>
+          <h1 data-i18n="intro.title"></h1>
+        </div>
         <p class="intro-note" data-i18n="intro.note"></p>
       </section>
       <section id="main-menu"></section>
       <section id="pen-picker" hidden data-i18n-label="pick.roster"></section>
       <section class="play-area" data-i18n-label="game.label" hidden>
-        <div class="game-bar"><span id="turn-pill" class="turn-pill" data-player="0"><span data-icon="pen" aria-hidden="true"></span><span class="turn-copy"><span id="turn-label"></span></span></span><p id="turn-hint" class="turn-hint" aria-hidden="true"></p><span id="status" role="status" aria-live="polite"></span><span class="hot-seat" data-i18n="hud.hotSeat"></span><button id="pause-button" class="pause-key" type="button" aria-haspopup="dialog" data-i18n-label="pause.open"><span data-icon="pause" aria-hidden="true"></span></button></div>
-        <div id="arena"><p id="loading" data-i18n="game.loading"></p></div><p id="handoff" class="handoff" aria-hidden="true"></p><p id="desk-banner" class="desk-banner" aria-hidden="true"></p>
+        <div class="game-bar">
+          <span id="turn-pill" class="turn-pill" data-player="0">
+            <span data-icon="pen" aria-hidden="true"></span>
+            <span class="turn-copy"><span id="turn-label"></span></span>
+          </span>
+          <p id="turn-hint" class="turn-hint" aria-hidden="true"></p>
+          <span id="status" role="status" aria-live="polite"></span>
+          <span class="hot-seat" data-i18n="hud.hotSeat"></span>
+          <button id="pause-button" class="pause-key" type="button" aria-haspopup="dialog" data-i18n-label="pause.open">
+            <span data-icon="pause" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div id="arena"><p id="loading" data-i18n="game.loading"></p></div>
+        <p id="handoff" class="handoff" aria-hidden="true"></p>
+        <p id="desk-banner" class="desk-banner" aria-hidden="true"></p>
         <div id="result" class="result" hidden></div>
         <div class="game-bottom" role="group" data-i18n-label="board.label"></div>
       </section>
-      <footer><p><b data-step="1"></b> <span data-i18n="controls.hold"></span> <b data-step="2"></b> <span data-i18n="controls.aim"></span> <b data-step="3"></b> <span data-i18n="controls.release"></span></p><p data-i18n="controls.tip"></p></footer>
+      <footer>
+        <p>
+          <b data-step="1"></b> <span data-i18n="controls.hold"></span>
+          <b data-step="2"></b> <span data-i18n="controls.aim"></span>
+          <b data-step="3"></b> <span data-i18n="controls.release"></span>
+        </p>
+        <p data-i18n="controls.tip"></p>
+      </footer>
     </main>
-    <div id="desk-loader" class="desk-loader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="desk-loader-text" hidden><div class="loader-card"><span class="loader-mark" aria-hidden="true"></span><span class="loader-pen" aria-hidden="true"></span><p id="desk-loader-text" data-i18n="loader.text"></p></div></div>
-    <div id="boot-splash" class="boot-splash" aria-hidden="true"><div class="boot-card"><p></p><span class="update-bar"><i></i></span></div></div>
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"5ab6f8fc429f4ba9aff7a5e9411bc822","r":1,"spa":2}' crossorigin="anonymous"></script>
-</body>
+    <div id="desk-loader" class="desk-loader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="desk-loader-text" hidden>
+      <div class="loader-card">
+        <span class="loader-mark" aria-hidden="true"></span>
+        <span class="loader-pen" aria-hidden="true"></span>
+        <p id="desk-loader-text" data-i18n="loader.text"></p>
+      </div>
+    </div>
+    <div id="boot-splash" class="boot-splash" aria-hidden="true">
+      <div class="boot-card">
+        <p></p>
+        <span class="update-bar"><i></i></span>
+      </div>
+    </div>
+  </body>
 </html>
