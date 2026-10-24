@@ -1,5 +1,5 @@
 /*
- * MAHI: Ultimate Pen Fight boot (1.6.7). A classic script in <head>, so it runs before the first paint (the CSP allows 'self').
+ * Pen Fight boot (1.6.7). A classic script in <head>, so it runs before the first paint (the CSP allows 'self').
  * - The page colour: style.css paints the page with var(--page), which the app script sets much later. Until then the
  *   browser drew a blank page: the white flash on every load and after Update. Here --page comes from the theme-color
  *   meta for the saved theme (light, dark or the system one), so the first paint already has the page colour.
