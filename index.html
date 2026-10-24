@@ -4,26 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <!-- Static English defaults for link previews and crawlers; i18n replaces title and description at runtime. -->
-    <title data-i18n="app.pageTitle">Pen Fight · Flick pen duel on a school desk | Mahi Vortex</title>
+    <title data-i18n="app.pageTitle">Pen Fight · Flick pen duel on a school desk | Shunnek Labs</title>
     <meta name="description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." data-i18n-description="app.description" />
     <!-- Filled at build time from the page colours (build/release-plugins.ts); the theme updates both at runtime. -->
     <meta name="theme-color" content="#f4ebd4" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#1f2a3a" media="(prefers-color-scheme: dark)" />
     <!-- Before the first paint: the page colour and theme (no blank flash), and the update splash after an update. -->
-    <script src="/games/MAHI: Ultimate Pen Fight/boot.js"></script>
+    <script src="/games/pen-fight/boot.js"></script>
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="Mahi Vortex" />
-    <link rel="canonical" href="https://mahivortex.app/games/MAHI: Ultimate Pen Fight/" />
+    <meta name="author" content="Shunnek Labs" />
+    <link rel="canonical" href="https://shunneklabs.app/games/pen-fight/" />
     <!-- Share previews: absolute URLs, so they work wherever the link is pasted. Image made by scripts/bake-share-images.mjs. -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Mahi Vortex" />
+    <meta property="og:site_name" content="Shunnek Labs" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="de_DE" />
     <meta property="og:title" content="Pen Fight · Flick pen duel on a school desk" />
     <meta property="og:description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." />
-    <meta property="og:url" content="https://mahivortex.app/games/MAHI: Ultimate Pen Fight/" />
-    <meta property="og:image" content="https://mahivortex.app/games/MAHI: Ultimate Pen Fight/og-1200x630.png" />
-    <meta property="og:image:secure_url" content="https://mahivortex.app/games/MAHI: Ultimate Pen Fight/og-1200x630.png" />
+    <meta property="og:url" content="https://shunneklabs.app/games/pen-fight/" />
+    <meta property="og:image" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
+    <meta property="og:image:secure_url" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -31,13 +31,13 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Pen Fight · Flick pen duel on a school desk" />
     <meta name="twitter:description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." />
-    <meta name="twitter:image" content="https://mahivortex.app/games/MAHI: Ultimate Pen Fight/og-1200x630.png" />
+    <meta name="twitter:image" content="https://shunneklabs.app/games/pen-fight/og-1200x630.png" />
     <meta name="twitter:image:alt" content="Two pens on a wooden school desk, with the title Pen Fight." />
-    <link rel="icon" href="/games/MAHI: Ultimate Pen Fight/favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href="/games/MAHI: Ultimate Pen Fight/icon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/games/MAHI: Ultimate Pen Fight/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/games/MAHI: Ultimate Pen Fight/apple-touch-icon.png" />
-    <link rel="manifest" href="/games/MAHI: Ultimate Pen Fight/manifest.webmanifest" />
+    <link rel="icon" href="/games/pen-fight/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/games/pen-fight/icon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/games/pen-fight/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/games/pen-fight/apple-touch-icon.png" />
+    <link rel="manifest" href="/games/pen-fight/manifest.webmanifest" />
     <!-- Home screen installs open full screen: the manifest asks for it on Android, these tags on iOS. -->
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,12 +50,12 @@
   "@graph": [
     {
       "@type": ["VideoGame", "WebApplication"],
-      "@id": "https://mahivortex.app/games/MAHI: Ultimate Pen Fight/#game",
+      "@id": "https://shunneklabs.app/games/pen-fight/#game",
       "name": "Pen Fight",
       "alternateName": "Desk Wars · Pen Fight",
       "description": "Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads.",
-      "url": "https://mahivortex.app/games/MAHI: Ultimate Pen Fight/",
-      "image": "https://mahivortex.app/games/MAHI: Ultimate Pen Fight/og-1200x630.png",
+      "url": "https://shunneklabs.app/games/pen-fight/",
+      "image": "https://shunneklabs.app/games/pen-fight/og-1200x630.png",
       "genre": ["Arcade", "Party", "Skill"],
       "gamePlatform": "Web browser",
       "applicationCategory": "Game",
@@ -67,64 +67,51 @@
       "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
       "gameLocation": "Local play on one device, against the computer or with a friend",
       "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://mahivortex.app/games/MAHI: Ultimate Pen Fight/" },
-      "publisher": { "@id": "https://mahivortex.app/#organization" },
-      "author": { "@id": "https://mahivortex.app/#organization" },
-      "isPartOf": { "@type": "CollectionPage", "name": "Games · Mahi Vortex", "url": "https://mahivortex.app/games/" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://shunneklabs.app/games/pen-fight/" },
+      "publisher": { "@id": "https://shunneklabs.app/#organization" },
+      "author": { "@id": "https://shunneklabs.app/#organization" },
+      "isPartOf": { "@type": "CollectionPage", "name": "Games · Shunnek Labs", "url": "https://shunneklabs.app/games/" }
     },
     {
       "@type": "Organization",
-      "@id": "https://mahivortex.app/#organization",
-      "name": "Mahi Vortex",
-      "url": "https://mahivortex.app/",
-      "logo": "https://mahivortex.app/web/apple-touch-icon.png",
-      "sameAs": ["https://mahivortex.com"]
+      "@id": "https://shunneklabs.app/#organization",
+      "name": "Shunnek Labs",
+      "url": "https://shunneklabs.app/",
+      "logo": "https://shunneklabs.app/web/apple-touch-icon.png",
+      "sameAs": ["https://shunneklabs.com"]
     }
   ]
 }
     </script>
-    <script type="module" crossorigin src="/games/MAHI: Ultimate Pen Fight/assets/index-CZKrJOft.js"></script>
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/rolldown-runtime-XKyaHtl9.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/CanvasPool-EdluIB4P.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/RenderTargetSystem-BF24UPiI.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/getTexelRangeRects-nRHaAKGT.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/WebGLRenderer-D8sIAoR4.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/getTextureBatchBindGroup-CNA3CxcA.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/WebGPURenderer-DhiGflwE.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/canvasUtils-Cg74IfN-.js">
-    <link rel="modulepreload" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/CanvasRenderer-Bcopnc1f.js">
-    <link rel="stylesheet" crossorigin href="/games/MAHI: Ultimate Pen Fight/assets/index-2uJHwxj2.css">
+    <script type="module" crossorigin src="/games/pen-fight/assets/index-CZKrJOft.js"></script>
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/rolldown-runtime-XKyaHtl9.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/CanvasPool-EdluIB4P.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/RenderTargetSystem-BF24UPiI.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/getTexelRangeRects-nRHaAKGT.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/WebGLRenderer-D8sIAoR4.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/getTextureBatchBindGroup-CNA3CxcA.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/WebGPURenderer-DhiGflwE.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/canvasUtils-Cg74IfN-.js">
+    <link rel="modulepreload" crossorigin href="/games/pen-fight/assets/CanvasRenderer-Bcopnc1f.js">
+    <link rel="stylesheet" crossorigin href="/games/pen-fight/assets/index-2uJHwxj2.css">
   </head>
   <body>
     <noscript>
       <div style="max-width: 40rem; margin: 2rem auto; padding: 0 1rem; font: 1.1rem/1.5 system-ui, sans-serif;">
         <h2>Pen Fight</h2>
-        <p>Pen Fight is a free flick game for the browser from Mahi Vortex. Two pens lie on a school desk: flick yours, knock the other pen off and keep yours on. Play the computer or a friend on the same phone, tablet or computer. No sign-in, no ads.</p>
+        <p>Pen Fight is a free flick game for the browser from Shunnek Labs. Two pens lie on a school desk: flick yours, knock the other pen off and keep yours on. Play the computer or a friend on the same phone, tablet or computer. No sign-in, no ads.</p>
         <p>How to play:</p>
         <ol>
           <li>Grab your pen.</li>
           <li>Pull back to aim. Pull further for more power, grab near a tip to spin.</li>
           <li>Let go to flick. Knock their pen off the desk and keep yours on to win.</li>
         </ol>
-        <p>Pen Fight needs JavaScript. Turn it on to play, or see <a href="/games/">all Mahi Vortex games</a>.</p>
+        <p>Pen Fight needs JavaScript. Turn it on to play, or see <a href="/games/">all Shunnek Labs games</a>.</p>
       </div>
     </noscript>
     <main>
       <header class="masthead">
-
-<div class="brand">
-  <img
-    class="brand-logo"
-    src="https://mahivortex.app/web/apple-touch-icon.png"
-    alt="Mahi Vortex"
-    style="width:40px;height:40px;object-fit:contain;"
-  />
-  <div>
-    <span data-i18n="brand.name"></span>
-    <span class="edition" data-i18n="brand.edition"></span>
-  </div>
-</div>
-
+        <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><span data-i18n="brand.name"></span><span class="edition" data-i18n="brand.edition"></span></div></div>
         <div class="header-actions"><span class="mode"></span><button id="settings-toggle" class="gear-pill" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel" data-i18n-label="settings.open"><span data-icon="settings" aria-hidden="true"></span></button></div>
       </header>
       <section class="intro" data-i18n-label="intro.label">
