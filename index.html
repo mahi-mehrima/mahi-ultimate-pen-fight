@@ -1,146 +1,203 @@
-
+```html
 <!doctype html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title data-i18n="app.pageTitle">Pen Fight · Flick pen duel on a school desk | Shunnek Labs</title>
-    <meta name="description" content="Pen Fight is a free browser game: flick your pen and knock the other pen off a school desk. Play the computer or a friend on one device. No sign-in, no ads." data-i18n-description="app.description" />
-    <meta name="theme-color" content="#f4ebd4" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#1f2a3a" media="(prefers-color-scheme: dark)" />
-    <script src="./boot.js"></script>
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="author" content="Shunnek Labs" />
-    <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Mahi Vortex" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Mahi Vortex · Pen Fight" />
-    <meta property="og:description" content="Play Pen Fight on Mahi Vortex." />
-    <meta property="og:url" content="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mahi Vortex · Pen Fight" />
-    <meta name="twitter:description" content="Play Pen Fight on Mahi Vortex." />
-    <link rel="icon" href="./favicon.ico" sizes="32x32" />
-    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-    <link rel="manifest" href="./manifest.webmanifest" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Mahi Vortex" />
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": ["VideoGame", "WebApplication"],
-  "name": "Mahi Vortex Pen Fight",
-  "description": "A free browser pen-flick game.",
-  "url": "https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/",
-  "genre": ["Arcade", "Party", "Skill"],
-  "gamePlatform": "Web browser",
-  "applicationCategory": "Game",
-  "operatingSystem": "Any",
-  "browserRequirements": "Requires JavaScript and a modern browser",
-  "playMode": ["SinglePlayer", "MultiPlayer"],
-  "numberOfPlayers": {
-    "@type": "QuantitativeValue",
-    "minValue": 1,
-    "maxValue": 2
-  },
-  "isAccessibleForFree": true
-}
-    </script>
-    <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-XKyaHtl9.js" />
-    <link rel="modulepreload" crossorigin href="./assets/CanvasPool-EdluIB4P.js" />
-    <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-BF24UPiI.js" />
-    <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-nRHaAKGT.js" />
-    <link rel="modulepreload" crossorigin href="./assets/WebGLRenderer-D8sIAoR4.js" />
-    <link rel="modulepreload" crossorigin href="./assets/getTextureBatchBindGroup-CNA3CxcA.js" />
-    <link rel="modulepreload" crossorigin href="./assets/WebGPURenderer-DhiGflwE.js" />
-    <link rel="modulepreload" crossorigin href="./assets/canvasUtils-Cg74IfN-.js" />
-    <link rel="modulepreload" crossorigin href="./assets/CanvasRenderer-Bcopnc1f.js" />
-    <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css" />
-  </head>
-  <body>
-    <noscript>
-      <div style="max-width: 40rem; margin: 2rem auto; padding: 0 1rem; font: 1.1rem/1.5 system-ui, sans-serif;">
-        <h2>Pen Fight</h2>
-        <p>Pen Fight needs JavaScript enabled to play.</p>
-        <p>How to play:</p>
-        <ol>
-          <li>Grab your pen.</li>
-          <li>Pull back to aim. Pull further for more power.</li>
-          <li>Release to flick and knock the other pen off the desk.</li>
-        </ol>
-      </div>
-    </noscript>
-    <main>
-      <header class="masthead">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <div>
-            <span data-i18n="brand.name"></span>
-            <span class="edition" data-i18n="brand.edition"></span>
-          </div>
-        </div>
-        <div class="header-actions">
-          <span class="mode"></span>
-          <button id="settings-toggle" class="gear-pill" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings-panel" data-i18n-label="settings.open">
-            <span data-icon="settings" aria-hidden="true"></span>
-          </button>
-        </div>
-      </header>
-      <section class="intro" data-i18n-label="intro.label">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <title>Mahi Vortex · Pen Fight</title>
+  <meta name="description" content="Mahi Vortex — play the ultimate pen fight game." />
+  <meta name="theme-color" content="#f4ebd4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1f2a3a" media="(prefers-color-scheme: dark)" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Mahi Vortex" />
+
+  <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mahi Vortex" />
+  <meta property="og:title" content="Mahi Vortex · Pen Fight" />
+  <meta property="og:description" content="Play Pen Fight on Mahi Vortex." />
+  <meta property="og:url" content="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mahi Vortex · Pen Fight" />
+  <meta name="twitter:description" content="Play Pen Fight on Mahi Vortex." />
+
+  <link rel="icon" href="./favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mahi Vortex" />
+
+  <script src="./boot.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["VideoGame", "WebApplication"],
+    "name": "Mahi Vortex Pen Fight",
+    "description": "A free browser pen-flick game.",
+    "url": "https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/",
+    "genre": ["Arcade", "Party", "Skill"],
+    "gamePlatform": "Web browser",
+    "applicationCategory": "Game",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript and a modern browser",
+    "playMode": ["SinglePlayer", "MultiPlayer"],
+    "numberOfPlayers": {
+      "@type": "QuantitativeValue",
+      "minValue": 1,
+      "maxValue": 2
+    },
+    "isAccessibleForFree": true
+  }
+  </script>
+
+  <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
+
+  <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-XKyaHtl9.js" />
+  <link rel="modulepreload" crossorigin href="./assets/CanvasPool-EdluIB4P.js" />
+  <link rel="modulepreload" crossorigin href="./assets/RenderTargetSystem-BF24UPiI.js" />
+  <link rel="modulepreload" crossorigin href="./assets/getTexelRangeRects-nRHaAKGT.js" />
+  <link rel="modulepreload" crossorigin href="./assets/WebGLRenderer-D8sIAoR4.js" />
+  <link rel="modulepreload" crossorigin href="./assets/getTextureBatchBindGroup-CNA3CxcA.js" />
+  <link rel="modulepreload" crossorigin href="./assets/WebGPURenderer-DhiGflwE.js" />
+  <link rel="modulepreload" crossorigin href="./assets/canvasUtils-Cg74IfN-.js" />
+  <link rel="modulepreload" crossorigin href="./assets/CanvasRenderer-Bcopnc1f.js" />
+
+  <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css" />
+
+  <style>
+    .brand-name-custom {
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <div style="max-width:40rem;margin:2rem auto;padding:0 1rem;font:1.1rem/1.5 system-ui,sans-serif">
+      <h2>Mahi Vortex</h2>
+      <p>This game needs JavaScript enabled to play.</p>
+    </div>
+  </noscript>
+
+  <main>
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
         <div>
-          <p class="eyebrow" data-i18n="intro.eyebrow"></p>
-          <h1 data-i18n="intro.title"></h1>
+          <span class="brand-name-custom" data-i18n="brand.name">Mahi Vortex</span>
+          <span class="edition" data-i18n="brand.edition">MAHI VORTEX EDITION</span>
         </div>
-        <p class="intro-note" data-i18n="intro.note"></p>
-      </section>
-      <section id="main-menu"></section>
-      <section id="pen-picker" hidden data-i18n-label="pick.roster"></section>
-      <section class="play-area" data-i18n-label="game.label" hidden>
-        <div class="game-bar">
-          <span id="turn-pill" class="turn-pill" data-player="0">
-            <span data-icon="pen" aria-hidden="true"></span>
-            <span class="turn-copy"><span id="turn-label"></span></span>
-          </span>
-          <p id="turn-hint" class="turn-hint" aria-hidden="true"></p>
-          <span id="status" role="status" aria-live="polite"></span>
-          <span class="hot-seat" data-i18n="hud.hotSeat"></span>
-          <button id="pause-button" class="pause-key" type="button" aria-haspopup="dialog" data-i18n-label="pause.open">
-            <span data-icon="pause" aria-hidden="true"></span>
-          </button>
-        </div>
-        <div id="arena"><p id="loading" data-i18n="game.loading"></p></div>
-        <p id="handoff" class="handoff" aria-hidden="true"></p>
-        <p id="desk-banner" class="desk-banner" aria-hidden="true"></p>
-        <div id="result" class="result" hidden></div>
-        <div class="game-bottom" role="group" data-i18n-label="board.label"></div>
-      </section>
-      <footer>
-        <p>
-          <b data-step="1"></b> <span data-i18n="controls.hold"></span>
-          <b data-step="2"></b> <span data-i18n="controls.aim"></span>
-          <b data-step="3"></b> <span data-i18n="controls.release"></span>
-        </p>
-        <p data-i18n="controls.tip"></p>
-      </footer>
-    </main>
-    <div id="desk-loader" class="desk-loader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-labelledby="desk-loader-text" hidden>
-      <div class="loader-card">
-        <span class="loader-mark" aria-hidden="true"></span>
-        <span class="loader-pen" aria-hidden="true"></span>
-        <p id="desk-loader-text" data-i18n="loader.text"></p>
       </div>
-    </div>
-    <div id="boot-splash" class="boot-splash" aria-hidden="true">
-      <div class="boot-card">
-        <p></p>
-        <span class="update-bar"><i></i></span>
+
+      <div class="header-actions">
+        <span class="mode"></span>
+        <button id="settings-toggle" class="gear-pill" type="button"
+          aria-haspopup="dialog" aria-expanded="false"
+          aria-controls="settings-panel" data-i18n-label="settings.open">
+          <span data-icon="settings" aria-hidden="true"></span>
+        </button>
       </div>
+    </header>
+
+    <section class="intro" data-i18n-label="intro.label">
+      <div>
+        <p class="eyebrow" data-i18n="intro.eyebrow"></p>
+        <h1 data-i18n="intro.title">Mahi Vortex</h1>
+      </div>
+      <p class="intro-note" data-i18n="intro.note"></p>
+    </section>
+
+    <section id="main-menu"></section>
+    <section id="pen-picker" hidden data-i18n-label="pick.roster"></section>
+
+    <section class="play-area" data-i18n-label="game.label" hidden>
+      <div class="game-bar">
+        <span id="turn-pill" class="turn-pill" data-player="0">
+          <span data-icon="pen" aria-hidden="true"></span>
+          <span class="turn-copy"><span id="turn-label"></span></span>
+        </span>
+
+        <p id="turn-hint" class="turn-hint" aria-hidden="true"></p>
+        <span id="status" role="status" aria-live="polite"></span>
+        <span class="hot-seat" data-i18n="hud.hotSeat"></span>
+
+        <button id="pause-button" class="pause-key" type="button"
+          aria-haspopup="dialog" data-i18n-label="pause.open">
+          <span data-icon="pause" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div id="arena">
+        <p id="loading" data-i18n="game.loading">Loading Mahi Vortex...</p>
+      </div>
+
+      <p id="handoff" class="handoff" aria-hidden="true"></p>
+      <p id="desk-banner" class="desk-banner" aria-hidden="true"></p>
+      <div id="result" class="result" hidden></div>
+      <div class="game-bottom" role="group" data-i18n-label="board.label"></div>
+    </section>
+
+    <footer>
+      <p>
+        <b data-step="1"></b> <span data-i18n="controls.hold"></span>
+        <b data-step="2"></b> <span data-i18n="controls.aim"></span>
+        <b data-step="3"></b> <span data-i18n="controls.release"></span>
+      </p>
+      <p data-i18n="controls.tip"></p>
+    </footer>
+  </main>
+
+  <div id="desk-loader" class="desk-loader" role="progressbar"
+    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+    aria-labelledby="desk-loader-text" hidden>
+    <div class="loader-card">
+      <span class="loader-mark" aria-hidden="true"></span>
+      <span class="loader-pen" aria-hidden="true"></span>
+      <p id="desk-loader-text" data-i18n="loader.text"></p>
     </div>
-  </body>
+  </div>
+
+  <div id="boot-splash" class="boot-splash" aria-hidden="true">
+    <div class="boot-card">
+      <p></p>
+      <span class="update-bar"><i></i></span>
+    </div>
+  </div>
+
+  <script>
+    document.title = "Mahi Vortex · Pen Fight";
+
+    // Keep the visible header branding as Mahi Vortex.
+    function setMahiVortexBrand() {
+      const brand = document.querySelector('[data-i18n="brand.name"]');
+      if (brand && brand.textContent !== "Mahi Vortex") {
+        brand.textContent = "Mahi Vortex";
+      }
+
+      const edition = document.querySelector('[data-i18n="brand.edition"]');
+      if (edition && edition.textContent !== "MAHI VORTEX EDITION") {
+        edition.textContent = "MAHI VORTEX EDITION";
+      }
+    }
+
+    setMahiVortexBrand();
+
+    new MutationObserver(setMahiVortexBrand).observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+  </script>
+</body>
 </html>
+```
