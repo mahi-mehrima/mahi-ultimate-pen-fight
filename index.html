@@ -1,4 +1,4 @@
-
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -115,6 +115,8 @@
 
     .mv-credit {
       margin: 8px 0;
+      padding: 8px;
+      text-align: center;
       color: #b9f3ff;
       font-size: 13px;
       letter-spacing: 1px;
@@ -302,101 +304,51 @@
     </div>
   </div>
 
+  <!-- Safe branding: update only when the displayed text differs -->
   <script>
-    document.title = "Mahi Vortex | Pen Fight";
+    (() => {
+      function applyMahiBrand() {
+        if (document.title !== "Mahi Vortex | Pen Fight") {
+          document.title = "Mahi Vortex | Pen Fight";
+        }
 
-    function setMahiVortexBrand() {
-      const brand = document.querySelector('[data-i18n="brand.name"]');
-      if (brand) brand.textContent = "Mahi Vortex";
+        document.querySelectorAll('[data-i18n="brand.name"]')
+          .forEach((el) => {
+            if (el.textContent !== "Mahi Vortex") {
+              el.textContent = "Mahi Vortex";
+            }
+          });
 
-      const edition = document.querySelector('[data-i18n="brand.edition"]');
-      if (edition) edition.textContent = "MAHI VORTEX EDITION";
+        document.querySelectorAll('[data-i18n="brand.edition"]')
+          .forEach((el) => {
+            if (el.textContent !== "MAHI VORTEX EDITION") {
+              el.textContent = "MAHI VORTEX EDITION";
+            }
+          });
 
-      const heading = document.querySelector(".intro h1");
-      if (heading) heading.textContent = "Mahi Vortex";
+        const heading = document.querySelector(".intro h1");
+        if (heading && heading.textContent !== "Mahi Vortex") {
+          heading.textContent = "Mahi Vortex";
+        }
 
-      const loading = document.getElementById("loading");
-      if (loading && loading.textContent.includes("Loading")) {
-        loading.textContent = "Loading Mahi Vortex...";
+        const loading = document.getElementById("loading");
+        if (loading && loading.textContent.trim() === "Loading...") {
+          loading.textContent = "Loading Mahi Vortex...";
+        }
       }
-    }
 
-    setMahiVortexBrand();
+      applyMahiBrand();
 
-    new MutationObserver(setMahiVortexBrand).observe(
-      document.documentElement,
-      {
+      const observer = new MutationObserver(() => {
+        applyMahiBrand();
+      });
+
+      observer.observe(document.documentElement, {
         childList: true,
         subtree: true
-      }
-    );
-  </script>
-
-<!-- Mahi Vortex visible branding -->
-<style>
-  .mv-credit {
-    text-align: center;
-    padding: 12px;
-    color: #fff;
-    font: 600 14px/1.6 system-ui, sans-serif;
-    background: rgba(12, 10, 30, .88);
-    border-top: 1px solid #673cff;
-  }
-  .mv-credit strong {
-    color: #b9a0ff;
-  }
-  .mv-facebook {
-    display: inline-block;
-    margin: 6px;
-    padding: 7px 14px;
-    border-radius: 20px;
-    color: white;
-    background: #0866ff;
-    text-decoration: none;
-    font-weight: 700;
-  }
-</style>
-
-<div class="mv-credit">
-  <strong>Mahi Vortex</strong>
-  <br>
-  Made by SK Abdur Rahman Mahi
-  <br>
-  <a class="mv-facebook"
-     href="https://www.facebook.com/mahi04rotna"
-     target="_blank"
-     rel="noopener noreferrer">
-    Follow Mahi Vortex on Facebook
-  </a>
-</div>
-
-<script>
-(() => {
-  const applyBrand = () => {
-    document.title = "Mahi Vortex | Pen Fight";
-
-    document.querySelectorAll('[data-i18n="brand.name"]')
-      .forEach(el => el.textContent = "Mahi Vortex");
-
-    document.querySelectorAll('[data-i18n="brand.edition"]')
-      .forEach(el => el.textContent = "PEN FIGHT");
-
-    document.querySelectorAll('header .brand, .intro h1')
-      .forEach(el => {
-        if (!el.textContent.includes("Mahi Vortex")) {
-          el.setAttribute("aria-label", "Mahi Vortex");
-        }
       });
-  };
-
-  applyBrand();
-
-  new MutationObserver(applyBrand).observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-})();
-</script>
+    })();
+  </script>
 </body>
 </html>
-
+```
