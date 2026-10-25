@@ -10,6 +10,7 @@
   <link rel="icon" href="./favicon.ico">
   <link rel="manifest" href="./manifest.webmanifest">
 
+  <!-- Original game files: keep these unchanged -->
   <link rel="stylesheet" href="./assets/index-2uJHwxj2.css">
   <script src="./boot.js"></script>
   <script type="module" src="./assets/index-CZKrJOft.js"></script>
@@ -21,7 +22,9 @@
       --mv-purple: #a855f7;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -94,7 +97,7 @@
       font-size: 13px;
     }
 
-    /* Main Menu always uses the Mahi Vortex image */
+    /* Main Menu keeps the original Mahi Vortex background */
     #main-menu {
       position: relative;
       background-image:
@@ -106,7 +109,7 @@
       border-radius: 12px;
     }
 
-    /* Other screens follow the selected background */
+    /* Other game screens use the selected background */
     #pen-picker,
     .play-area {
       background-image:
@@ -167,6 +170,11 @@
       outline: 2px solid var(--mv-purple);
     }
 
+    #mv-bg-status {
+      overflow-wrap: anywhere;
+      font-size: 13px;
+    }
+
     footer {
       position: relative;
       z-index: 2;
@@ -183,8 +191,13 @@
     }
 
     @media (max-width: 600px) {
-      body { background-attachment: scroll; }
-      .masthead { padding: 12px; }
+      body {
+        background-attachment: scroll;
+      }
+
+      .masthead {
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -222,20 +235,38 @@
       <div class="mv-credit">Made by SK Abdur Rahman Mahi</div>
     </section>
 
+    <!-- Background selector: original + six new backgrounds -->
     <section id="mv-background-settings">
       <h2>🎨 Background Settings</h2>
-      <p>Main Menu-তে Mahi Vortex background স্থায়ী থাকবে। অন্য স্ক্রিনের জন্য নিচের অপশন থেকে বেছে নাও।</p>
+      <p>
+        Main Menu-তে Mahi Vortex background থাকবে।
+        অন্য স্ক্রিনের জন্য নিচের ব্যাকগ্রাউন্ড বেছে নাও।
+      </p>
 
       <div class="mv-bg-buttons">
-        <button type="button" data-bg="desk-clean-DLVVUlLE.webp">Clean Desk</button>
-        <button type="button" data-bg="desk-clean-dark-JT8PWu_t.webp">Clean Dark</button>
-        <button type="button" data-bg="desk-old-E230-6rb.webp">Old Desk</button>
-        <button type="button" data-bg="desk-old-dark-SzrO7MB8.webp">Old Dark</button>
-        <button type="button" data-bg="desk-school-dark-CegJ5AG-.webp">School Dark</button>
-        <button type="button" data-bg="desk-school-home-7jR7BuR9.webp">School Home</button>
-        <button type="button" data-bg="desk-school-home-dark-B_e9FIFR.webp">School Home Dark</button>
-        <button type="button" data-bg="mahi-vortex-desk.png">Mahi Vortex</button>
+        <button type="button" data-bg="desk-clean-DLVVUlLE.webp">
+          Clean Desk
+        </button>
+        <button type="button" data-bg="desk-clean-dark-JT8PWu_t.webp">
+          Clean Dark
+        </button>
+        <button type="button" data-bg="desk-old-E230-6rb.webp">
+          Old Desk
+        </button>
+        <button type="button" data-bg="desk-old-dark-SzrO7MB8.webp">
+          Old Dark
+        </button>
+        <button type="button" data-bg="desk-school-dark-CegJ5AG-.webp">
+          School Dark
+        </button>
+        <button type="button" data-bg="desk-school-home-7jR7BuR9.webp">
+          School Home
+        </button>
+        <button type="button" data-bg="mahi-vortex-desk.png">
+          Original Background
+        </button>
       </div>
+
       <p id="mv-bg-status" role="status" aria-live="polite"></p>
     </section>
 
@@ -247,6 +278,7 @@
       <p class="intro-note" data-i18n="intro.note"></p>
     </section>
 
+    <!-- Original game mount points: do not remove -->
     <section id="main-menu"></section>
     <section id="pen-picker" hidden data-i18n-label="pick.roster"></section>
 
@@ -286,7 +318,8 @@
       </p>
       <p data-i18n="controls.tip"></p>
       <p class="mv-credit">Made by SK Abdur Rahman Mahi</p>
-      <a class="mv-link" href="https://www.facebook.com/mahi04rotna"
+      <a class="mv-link"
+         href="https://www.facebook.com/mahi04rotna"
          target="_blank" rel="noopener noreferrer">Facebook ↗</a>
     </footer>
   </main>
@@ -308,6 +341,7 @@
     </div>
   </div>
 
+  <!-- Background selection logic -->
   <script>
     (() => {
       "use strict";
@@ -319,17 +353,21 @@
         "desk-old-E230-6rb.webp",
         "desk-old-dark-SzrO7MB8.webp",
         "desk-school-dark-CegJ5AG-.webp",
-        "desk-school-home-7jR7BuR9.webp",
-        "desk-school-home-dark-B_e9FIFR.webp"
+        "desk-school-home-7jR7BuR9.webp"
       ];
 
       const root = document.documentElement;
       const status = document.getElementById("mv-bg-status");
+      const storageKey = "mv-background";
 
       function setBackground(filename) {
         if (!backgrounds.includes(filename)) return;
 
-        const imageUrl = new URL("./assets/" + filename, document.baseURI);
+        const imageUrl = new URL(
+          "./assets/" + filename,
+          document.baseURI
+        );
+
         const image = new Image();
 
         image.onload = () => {
@@ -339,28 +377,31 @@
           );
 
           try {
-            localStorage.setItem("mv-background", filename);
+            localStorage.setItem(storageKey, filename);
           } catch (_) {}
 
-          status.textContent = "Background changed: " + filename;
+          status.textContent = "Background changed successfully.";
         };
 
         image.onerror = () => {
           status.textContent =
-            "Image not found: " + filename + ". Check the assets folder.";
+            "Image not found: " + filename +
+            ". Please check the assets folder and filename.";
         };
 
         image.src = imageUrl.href;
       }
 
-      document.querySelectorAll("[data-bg]").forEach(button => {
-        button.addEventListener("click", () => {
-          setBackground(button.dataset.bg);
+      document.querySelectorAll("#mv-background-settings [data-bg]")
+        .forEach(button => {
+          button.addEventListener("click", () => {
+            setBackground(button.dataset.bg);
+          });
         });
-      });
 
       try {
-        const saved = localStorage.getItem("mv-background");
+        const saved = localStorage.getItem(storageKey);
+
         if (saved && backgrounds.includes(saved)) {
           setBackground(saved);
         }
