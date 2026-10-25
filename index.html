@@ -1,4 +1,4 @@
-
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,69 +7,74 @@
   <meta name="theme-color" content="#10101e">
   <title>Mahi Vortex | Pen Fight</title>
   <meta name="description" content="Mahi Vortex Pen Fight — Made by SK Abdur Rahman Mahi">
+  <meta name="author" content="SK Abdur Rahman Mahi">
+
+  <link rel="canonical" href="https://mahi-mehrima.github.io/mahi-ultimate-pen-fight/">
   <link rel="icon" href="./favicon.ico">
   <link rel="manifest" href="./manifest.webmanifest">
 
-  <!-- Original game files: keep these unchanged -->
-  <link rel="stylesheet" href="./assets/index-2uJHwxj2.css">
+  <!-- Original game files -->
   <script src="./boot.js"></script>
-  <script type="module" src="./assets/index-CZKrJOft.js"></script>
+  <script type="module" crossorigin src="./assets/index-CZKrJOft.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-2uJHwxj2.css">
 
   <style>
     :root {
-      --mv-bg-image: url("./assets/mahi-vortex-desk.png");
+      --mv-bg: #10101e;
       --mv-blue: #00c8ff;
       --mv-purple: #a855f7;
+      --mv-white: #ffffff;
+      --mv-bg-image: url("./assets/mahi-vortex-desk.png");
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      color: white;
-      background:
-        linear-gradient(rgba(8,8,20,.4), rgba(8,8,20,.55)),
-        var(--mv-bg-image);
-      background-size: cover;
+      background: linear-gradient(rgba(8,8,20,.42),rgba(8,8,20,.58)), var(--mv-bg-image);
       background-position: center;
+      background-size: cover;
       background-attachment: fixed;
+      color: var(--mv-white);
+    }
+
+    .masthead, footer, .mv-brand-panel {
+      position: relative;
+      z-index: 5;
     }
 
     .masthead {
-      position: relative;
-      z-index: 5;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      padding: 14px 18px;
-      background: rgba(8,8,20,.94);
+      padding: 14px 20px;
       border-bottom: 2px solid var(--mv-blue);
+      background: rgba(8,8,20,.9);
     }
 
     .brand-name-custom {
-      color: white;
-      font-size: clamp(22px,4vw,36px);
+      display: inline-block;
+      color: #fff;
       font-weight: 1000;
+      font-size: clamp(22px,4vw,38px);
+      letter-spacing: 1.5px;
       text-shadow: 0 0 12px var(--mv-purple);
     }
 
     .edition {
       display: block;
       color: var(--mv-blue);
-      font-size: 11px;
       font-weight: 800;
       letter-spacing: 3px;
+      font-size: 11px;
     }
 
     .mv-link {
       display: inline-block;
-      margin: 3px;
-      padding: 10px 14px;
+      padding: 10px 16px;
       border: 1px solid var(--mv-blue);
       border-radius: 24px;
       background: #111b47;
@@ -78,52 +83,48 @@
       font-weight: 800;
     }
 
+    .mv-link:hover {
+      background: #183a70;
+      box-shadow: 0 0 15px var(--mv-blue);
+    }
+
     .mv-brand-panel {
-      padding: 16px 10px;
+      margin: 12px auto;
+      padding: 12px;
       text-align: center;
       color: white;
+      font-weight: 900;
       text-shadow: 0 0 12px var(--mv-purple);
     }
 
-    .mv-title {
-      font-size: clamp(26px,5vw,42px);
-      font-weight: 1000;
+    .mv-brand-panel .mv-title {
+      font-size: clamp(24px,5vw,42px);
       letter-spacing: 2px;
     }
 
     .mv-credit {
-      margin: 8px;
+      margin: 8px 0;
+      padding: 8px;
+      text-align: center;
       color: #b9f3ff;
       font-size: 13px;
+      letter-spacing: 1px;
     }
 
-    /* Main Menu keeps the original Mahi Vortex background */
-    #main-menu {
+    #main-menu, #pen-picker, .play-area, .intro, footer {
       position: relative;
-      background-image:
-        linear-gradient(rgba(8,8,20,.25), rgba(8,8,20,.4)),
-        url("./assets/mahi-vortex-desk.png");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 12px;
+      z-index: 1;
     }
 
-    /* Other game screens use the selected background */
-    #pen-picker,
-    .play-area {
-      background-image:
-        linear-gradient(rgba(8,8,20,.28), rgba(8,8,20,.4)),
-        var(--mv-bg-image);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      border-radius: 12px;
+    #main-menu, #pen-picker, .play-area {
+      background-color: rgba(10,10,25,.2);
     }
 
     #arena {
+      position: relative;
+      background-color: rgba(36,24,16,.18);
       background-image:
-        linear-gradient(rgba(20,10,5,.08), rgba(20,10,5,.08)),
+        linear-gradient(rgba(20,10,5,.08),rgba(20,10,5,.08)),
         var(--mv-bg-image);
       background-position: center;
       background-size: cover;
@@ -132,19 +133,39 @@
       overflow: hidden;
     }
 
-    #mv-background-settings {
-      max-width: 900px;
-      margin: 18px auto;
-      padding: 16px;
-      border: 1px solid var(--mv-blue);
-      border-radius: 14px;
-      background: rgba(16,16,30,.96);
-      color: white;
+    footer {
+      padding: 18px 12px;
+      text-align: center;
+      background: rgba(8,8,20,.9);
+      border-top: 2px solid var(--mv-purple);
     }
 
-    #mv-background-settings h2 {
-      text-align: center;
+    footer p { margin: 8px 0; }
+
+    .mv-footer-brand {
+      color: white;
+      font-size: 18px;
+      font-weight: 1000;
+      letter-spacing: 2px;
     }
+
+    .mv-credit-footer {
+      color: #b9f3ff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    #mv-custom-options {
+      margin: 16px auto;
+      padding: 18px;
+      max-width: 900px;
+      background: rgba(16,16,30,.96);
+      color: white;
+      border: 1px solid var(--mv-blue);
+      border-radius: 14px;
+    }
+
+    #mv-custom-options h2 { text-align: center; }
 
     .mv-bg-buttons {
       display: flex;
@@ -152,75 +173,56 @@
       gap: 8px;
     }
 
-    .mv-bg-buttons button {
-      flex: 1 1 130px;
-      min-height: 42px;
-      padding: 10px;
+    #mv-custom-options button {
+      cursor: pointer;
+      padding: 10px 13px;
       border: 1px solid var(--mv-blue);
       border-radius: 9px;
       background: #111b47;
       color: white;
-      cursor: pointer;
       font-weight: 700;
     }
 
-    .mv-bg-buttons button:hover,
-    .mv-bg-buttons button:focus {
+    #mv-custom-options button:hover {
       background: #183a70;
-      outline: 2px solid var(--mv-purple);
     }
 
-    #mv-bg-status {
-      overflow-wrap: anywhere;
-      font-size: 13px;
-    }
-
-    footer {
-      position: relative;
-      z-index: 2;
-      padding: 18px 12px;
-      text-align: center;
-      background: rgba(8,8,20,.94);
-      border-top: 2px solid var(--mv-purple);
-    }
-
-    .mv-footer-brand {
-      font-size: 18px;
-      font-weight: 1000;
-      letter-spacing: 2px;
+    #mv-custom-options input {
+      display: block;
+      width: 100%;
+      padding: 11px;
+      margin: 7px 0 14px;
+      border-radius: 8px;
     }
 
     @media (max-width: 600px) {
-      body {
-        background-attachment: scroll;
-      }
-
-      .masthead {
-        padding: 12px;
-      }
+      .masthead { padding: 12px; }
+      .mv-link { padding: 8px 12px; font-size: 12px; }
+      body { background-attachment: scroll; }
     }
   </style>
 </head>
 
 <body>
   <noscript>
+    <h2>Mahi Vortex</h2>
     <p>This game needs JavaScript enabled.</p>
   </noscript>
 
   <main>
     <header class="masthead">
-      <div>
-        <span class="brand-name-custom" data-i18n="brand.name">Mahi Vortex</span>
-        <span class="edition" data-i18n="brand.edition">MAHI VORTEX EDITION</span>
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <span class="brand-name-custom" data-i18n="brand.name">Mahi Vortex</span>
+          <span class="edition" data-i18n="brand.edition">MAHI VORTEX EDITION</span>
+        </div>
       </div>
 
       <div class="header-actions">
-        <a class="mv-link"
-           href="https://www.facebook.com/mahi04rotna"
+        <a class="mv-link" href="https://www.facebook.com/mahi04rotna"
            target="_blank" rel="noopener noreferrer">Facebook ↗</a>
-
         <span class="mode"></span>
-
         <button id="settings-toggle" class="gear-pill" type="button"
           aria-haspopup="dialog" aria-expanded="false"
           aria-controls="settings-panel" data-i18n-label="settings.open">
@@ -229,45 +231,43 @@
       </div>
     </header>
 
-    <section class="mv-brand-panel">
+    <div class="mv-brand-panel">
       <div class="mv-title">MAHI VORTEX</div>
       <div>PEN FIGHT · FLICK · FIGHT · WIN</div>
       <div class="mv-credit">Made by SK Abdur Rahman Mahi</div>
-    </section>
+      <a class="mv-link" href="https://www.facebook.com/mahi04rotna"
+         target="_blank" rel="noopener noreferrer">Follow Mahi Vortex on Facebook ↗</a>
+    </div>
 
-    <!-- Background selector: original + six new backgrounds -->
-    <section id="mv-background-settings">
-      <h2>🎨 Background Settings</h2>
-      <p>
-        Main Menu-তে Mahi Vortex background থাকবে।
-        অন্য স্ক্রিনের জন্য নিচের ব্যাকগ্রাউন্ড বেছে নাও।
-      </p>
-
+    <!-- Background and guest-name settings -->
+    <section id="mv-custom-options">
+      <h2>⚡ Mahi Vortex Settings</h2>
+      <h3>🎨 Choose Background</h3>
       <div class="mv-bg-buttons">
-        <button type="button" data-bg="desk-clean-DLVVUlLE.webp">
-          Clean Desk
-        </button>
-        <button type="button" data-bg="desk-clean-dark-JT8PWu_t.webp">
-          Clean Dark
-        </button>
-        <button type="button" data-bg="desk-old-E230-6rb.webp">
-          Old Desk
-        </button>
-        <button type="button" data-bg="desk-old-dark-SzrO7MB8.webp">
-          Old Dark
-        </button>
-        <button type="button" data-bg="desk-school-dark-CegJ5AG-.webp">
-          School Dark
-        </button>
-        <button type="button" data-bg="desk-school-home-7jR7BuR9.webp">
-          School Home
-        </button>
-        <button type="button" data-bg="mahi-vortex-desk.png">
-          Original Background
-        </button>
+        <button type="button" onclick="mvSetBg('mahi-vortex-desk.png')">Mahi Vortex</button>
+        <button type="button" onclick="mvSetBg('desk-clean-DLVVUlLE.webp')">Clean Desk</button>
+        <button type="button" onclick="mvSetBg('desk-clean-dark-JT8PWu_t.webp')">Clean Dark</button>
+        <button type="button" onclick="mvSetBg('desk-old-E230-6rb.webp')">Old Desk</button>
+        <button type="button" onclick="mvSetBg('desk-old-dark-SzrO7MB8.webp')">Old Dark</button>
+        <button type="button" onclick="mvSetBg('desk-school-dark-CegJ5AG-.webp')">School Dark</button>
+        <button type="button" onclick="mvSetBg('desk-school-home-7jR7BuR9.webp')">School Home</button>
+        <button type="button" onclick="mvSetBg('desk-school-home-dark-B_e9FIFR.webp')">School Home Dark</button>
       </div>
 
-      <p id="mv-bg-status" role="status" aria-live="polite"></p>
+      <hr style="margin:18px 0;border-color:#00c8ff">
+
+      <h3>👤 Guest Player Names</h3>
+      <label for="mv-player1">Player 1 name</label>
+      <input id="mv-player1" maxlength="20" placeholder="Enter Player 1 name">
+
+      <label for="mv-player2">Player 2 name</label>
+      <input id="mv-player2" maxlength="20" placeholder="Enter Player 2 name">
+
+      <button type="button" onclick="mvSaveNames()">Save Names</button>
+      <span id="mv-save-status" role="status" style="margin-left:10px"></span>
+      <p style="font-size:12px;color:#b9f3ff">
+        Names are saved in this browser.
+      </p>
     </section>
 
     <section class="intro" data-i18n-label="intro.label">
@@ -278,7 +278,6 @@
       <p class="intro-note" data-i18n="intro.note"></p>
     </section>
 
-    <!-- Original game mount points: do not remove -->
     <section id="main-menu"></section>
     <section id="pen-picker" hidden data-i18n-label="pick.roster"></section>
 
@@ -288,11 +287,9 @@
           <span data-icon="pen" aria-hidden="true"></span>
           <span class="turn-copy"><span id="turn-label"></span></span>
         </span>
-
         <p id="turn-hint" class="turn-hint" aria-hidden="true"></p>
         <span id="status" role="status" aria-live="polite"></span>
         <span class="hot-seat" data-i18n="hud.hotSeat"></span>
-
         <button id="pause-button" class="pause-key" type="button"
           aria-haspopup="dialog" data-i18n-label="pause.open">
           <span data-icon="pause" aria-hidden="true"></span>
@@ -317,10 +314,9 @@
         <b data-step="3"></b> <span data-i18n="controls.release"></span>
       </p>
       <p data-i18n="controls.tip"></p>
-      <p class="mv-credit">Made by SK Abdur Rahman Mahi</p>
-      <a class="mv-link"
-         href="https://www.facebook.com/mahi04rotna"
-         target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+      <p class="mv-credit-footer">Made by SK Abdur Rahman Mahi</p>
+      <a class="mv-link" href="https://www.facebook.com/mahi04rotna"
+         target="_blank" rel="noopener noreferrer">Facebook: Mahi Vortex ↗</a>
     </footer>
   </main>
 
@@ -341,11 +337,8 @@
     </div>
   </div>
 
-  <!-- Background selection logic -->
   <script>
     (() => {
-      "use strict";
-
       const backgrounds = [
         "mahi-vortex-desk.png",
         "desk-clean-DLVVUlLE.webp",
@@ -353,62 +346,124 @@
         "desk-old-E230-6rb.webp",
         "desk-old-dark-SzrO7MB8.webp",
         "desk-school-dark-CegJ5AG-.webp",
-        "desk-school-home-7jR7BuR9.webp"
+        "desk-school-home-7jR7BuR9.webp",
+        "desk-school-home-dark-B_e9FIFR.webp"
       ];
 
-      const root = document.documentElement;
-      const status = document.getElementById("mv-bg-status");
-      const storageKey = "mv-background";
-
-      function setBackground(filename) {
+      window.mvSetBg = function(filename) {
         if (!backgrounds.includes(filename)) return;
-
-        const imageUrl = new URL(
-          "./assets/" + filename,
-          document.baseURI
+        document.documentElement.style.setProperty(
+          "--mv-bg-image", 'url("./assets/' + filename + '")'
         );
+        try { localStorage.setItem("mv-background", filename); } catch (e) {}
+      };
 
-        const image = new Image();
+      window.mvSaveNames = function() {
+        const p1 = document.getElementById("mv-player1").value.trim().slice(0, 20);
+        const p2 = document.getElementById("mv-player2").value.trim().slice(0, 20);
+        const status = document.getElementById("mv-save-status");
 
-        image.onload = () => {
-          root.style.setProperty(
-            "--mv-bg-image",
-            'url("' + imageUrl.href + '")'
-          );
+        if (!p1 || !p2) {
+          status.textContent = "Enter both player names.";
+          return;
+        }
 
-          try {
-            localStorage.setItem(storageKey, filename);
-          } catch (_) {}
+        try {
+          localStorage.setItem("mv-player1-name", p1);
+          localStorage.setItem("mv-player2-name", p2);
+        } catch (e) {
+          status.textContent = "Browser storage is unavailable.";
+          return;
+        }
 
-          status.textContent = "Background changed successfully.";
-        };
+        status.textContent = "Names saved!";
+        applyPlayerNames();
+      };
 
-        image.onerror = () => {
-          status.textContent =
-            "Image not found: " + filename +
-            ". Please check the assets folder and filename.";
-        };
+      function applyPlayerNames() {
+        let p1 = "Player 1";
+        let p2 = "Player 2";
 
-        image.src = imageUrl.href;
+        try {
+          p1 = localStorage.getItem("mv-player1-name") || p1;
+          p2 = localStorage.getItem("mv-player2-name") || p2;
+        } catch (e) {}
+
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+
+        for (const node of nodes) {
+          if (!node.parentElement ||
+              node.parentElement.closest("#mv-custom-options, script, style")) continue;
+
+          const value = node.nodeValue;
+          if (value.trim() === "Player 1") node.nodeValue = value.replace("Player 1", p1);
+          else if (value.trim() === "Player 2") node.nodeValue = value.replace("Player 2", p2);
+        }
       }
 
-      document.querySelectorAll("#mv-background-settings [data-bg]")
-        .forEach(button => {
-          button.addEventListener("click", () => {
-            setBackground(button.dataset.bg);
-          });
+      function initOptions() {
+        try {
+          const bg = localStorage.getItem("mv-background");
+          if (bg && backgrounds.includes(bg)) window.mvSetBg(bg);
+
+          document.getElementById("mv-player1").value =
+            localStorage.getItem("mv-player1-name") || "";
+          document.getElementById("mv-player2").value =
+            localStorage.getItem("mv-player2-name") || "";
+        } catch (e) {}
+      }
+
+      initOptions();
+
+      new MutationObserver(applyPlayerNames).observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+
+      applyPlayerNames();
+    })();
+  </script>
+
+  <script>
+    (() => {
+      function applyMahiBrand() {
+        if (document.title !== "Mahi Vortex | Pen Fight") {
+          document.title = "Mahi Vortex | Pen Fight";
+        }
+
+        document.querySelectorAll('[data-i18n="brand.name"]').forEach(el => {
+          if (el.textContent !== "Mahi Vortex") el.textContent = "Mahi Vortex";
         });
 
-      try {
-        const saved = localStorage.getItem(storageKey);
+        document.querySelectorAll('[data-i18n="brand.edition"]').forEach(el => {
+          if (el.textContent !== "MAHI VORTEX EDITION") {
+            el.textContent = "MAHI VORTEX EDITION";
+          }
+        });
 
-        if (saved && backgrounds.includes(saved)) {
-          setBackground(saved);
+        const heading = document.querySelector(".intro h1");
+        if (heading && heading.textContent !== "Mahi Vortex") {
+          heading.textContent = "Mahi Vortex";
         }
-      } catch (_) {}
 
-      document.title = "Mahi Vortex | Pen Fight";
+        const loading = document.getElementById("loading");
+        if (loading && loading.textContent.trim() === "Loading...") {
+          loading.textContent = "Loading Mahi Vortex...";
+        }
+      }
+
+      applyMahiBrand();
+
+      new MutationObserver(applyMahiBrand).observe(document.documentElement, {
+        childList: true,
+        subtree: true
+      });
     })();
   </script>
 </body>
 </html>
+```
